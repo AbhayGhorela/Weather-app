@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;600;700;800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+body{
+    background: black;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    position: relative;
+    background:rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    border:2px solid rgba(255, 255, 255, .2);
+    width: 25rem;
+    height: 34.688rem;
+    border-radius: 20px;
+    padding: 15px;
+    color:#fff;
+}
+
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media(min-aspect-ratio:16/9){
+    .back-video{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media(max-aspect-ratio:16/9){
+    .back-video{
+        width: auto;
+        height: 100%;
+    }
+}
+
+.search-box{
+    position: relative;
+    height: 3.438rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-box i{
+    position: absolute;
+    left: 0.625rem;
+    font-size: 1.75rem;
+    color: #fff;
+}
+
+.search-box input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: rgba(255,255,255, 0.2);
+    border-radius: 0.625rem;
+    font-size: 1.375rem;
+    color: #fff;
+    font-weight: 500;
+    padding: 0 3rem 0 2.625rem;
+}
+
+.search-box input::placeholder{
+    color: #fff;
+    text-transform: uppercase;
+
+}
+
+.search-box button{
+    position: absolute;
+    right: 0;
+    width: 2.75rem;
+    height: 100%;
+    background:transparent;
+    border: none;
+    outline: none;
+    font-size: 1.75rem;
+    padding: 0 2.5rem 0 0.313rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.weather-box{
+    text-align: center;
+    margin: 2.5 rem 0;
+}
+
+.weather-box img{
+    width: 60%;
+}
+
+.weather-box .temperature{
+    position: relative;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    margin:20px 0 6px -30px;
+}
+
+.weather-box .temperature span{
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.weather-box .description{
+    font-size: 1.375rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.weather-deatils{
+    position: absolute;
+    display: flex;
+    bottom: 2.5rem;
+    left: 0;
+    width: 100%;
+    padding: 0 1.25rem;
+}
+
+.weather-deatils .humidity,
+.weather-deatils .wind{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.weather-deatils .humidity{
+    padding-right: 1.25rem;
+    justify-content: flex-start;
+}
+.weather-deatils .wind{
+    padding-right: 1.25rem;
+    justify-content: flex-end;
+}
+
+.weather-deatils i{
+    font-size: 3.5rem;
+    margin-right: 0.625rem;
+}
+
+.weather-deatils span{
+    display: inline-block;
+    font-size: 1.375rem;
+    font-weight: 500;
+}
+
+.weather-deatils p{
+    font-size: 0.875;
+    font-weight: 500;
+}
