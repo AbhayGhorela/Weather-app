@@ -1,14 +1,39 @@
+const apiKey = '7a7334538be24b1506c3acc12d3abef5';
 const container = document.querySelector(".container")
 const search = document.querySelector(".search-box button")
+const enter = document.querySelector('.search-box input')
 const weatherBox = document.querySelector(".weather-box")
-const weatherDetails = document.querySelector(".weather-deatils")
+const weatherDetails = document.querySelector(".weather-details")
+const error404 = document.querySelector('.not-found')
+
+
+enter.addEventListener('keydown',(e)=>{
+    if(e.key == "Enter"){
+        search.click()
+        return;
+    }
+})
+
 
 search.addEventListener('click',()=>{
-    const apiKey = '7a7334538be24b1506c3acc12d3abef5';
-    const city = document.querySelector('.search-box input').value
     
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`).then(res => res.json()).then((data)=>{
+    const city = document.querySelector('.search-box input').value
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`).then(res => res.json()).then((data)=>{
         console.log(data)
+
+        if(data.cod == '404'){
+            container.style.height = '25rem'
+            weatherBox.classList.remove('active')
+            weatherDetails.classList.remove('active')
+            error404.classList.add('active')
+            return;
+        }
+
+        container.style.height = '34.688rem'
+        weatherBox.classList.add('active')
+        weatherDetails.classList.add('active')
+        error404.classList.remove('active')
 
         const image = document.querySelector('.weather-box img')
         const bg = document.querySelector('.back-video source')
